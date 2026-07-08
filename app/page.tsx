@@ -1,5 +1,5 @@
 import Banner from "@/components/sections/BannerSection/Banner";
-import Hero from "@/components/sections/Hero";
+import Hero from "@/components/sections/HeroSection/Hero";
 
 export default function Page() {
   return (

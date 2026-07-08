@@ -14,7 +14,7 @@ const BannerFeature: FC<BannerFeatureProps> = ({ id, title }) => {
         {title}
       </h3>
 
-      <div className="h-px w-full bg-white/20" />
+      <div className="h-px w-full bg-gradient-to-r from-white/30 via-white/10 to-black/20" />
     </div>
   );
 };
