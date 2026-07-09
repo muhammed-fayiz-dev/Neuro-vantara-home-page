@@ -7,7 +7,7 @@ interface Props {
  const Section:FC<Props>=({ children, className = "" })=> {
   return (
     <section className={`py-section ${className}`}>
-      <Container>{children}</Container>
+      <Container >{children}</Container>
     </section>
   )
 }

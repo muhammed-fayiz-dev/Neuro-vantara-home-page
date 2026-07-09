@@ -1,6 +1,6 @@
 import Image from "next/image"
 import { FC } from "react"
-import BannerFeature from "./BannerFeatures"
+import BannerFeature from "./components/BannerFeatures"
 import Button from "@/components/ui/Button/Button"
 
 interface BannerProps {

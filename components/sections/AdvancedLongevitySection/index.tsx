@@ -1,14 +1,13 @@
-
 import Section from "@/components/layout/SectionLayout"
-import { AdvancedLongevityCard } from "./AdvanceLongevity/AdvancedLongevityCard"
-import { title, description } from "./AdvanceLongevity/advancedLongevityData"
+import { AdvancedLongevityCard } from "./components/AdvancedLongevityCard"
+import { title, description } from "./data/advancedLongevityData"
 
 import Button from "@/components/ui/Button/Button"
 
 export default function AdvancedSection() {
   return (
     <Section className="bg-primary">
-      <div className="max-w-7xl">
+      <div className="max-auto max-w-7xl">
         {/* Top */}
         <div className="">
           <h2 className="text-xl font-light uppercase leading-tight text-neutral-700 lg:text-5xl">
@@ -21,11 +20,10 @@ export default function AdvancedSection() {
         </div>
 
         {/* Bottom */}
-        <div className="mt-24 flex flex-col gap-16 lg:flex-row lg:justify-between">
+        <div className="mt-15 flex flex-col gap-16 lg:flex-row lg:justify-between">
           {/* Button */}
           <div className="flex items-end">
-           
-          <Button>About Neuro Vanta</Button>
+            <Button>About Neuro Vanta</Button>
           </div>
 
           {/* Cards */}

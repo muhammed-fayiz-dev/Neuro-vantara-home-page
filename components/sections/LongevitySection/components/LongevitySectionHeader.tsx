@@ -5,7 +5,7 @@ const LongevitySectionHeader = () => {
   return (
     <header className="flex flex-col justify-between gap-12 lg:flex-row lg:items-start">
       {/* Title */}
-      <div className="lg:w-2/5">
+      <div className="flex items-center lg:w-2/5">
         <h2 className="text-4xl font-light uppercase tracking-tight text-neutral-700">
           LONGEVITY SYSTEMS
         </h2>

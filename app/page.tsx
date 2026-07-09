@@ -1,8 +1,9 @@
 import Banner from "@/components/sections/BannerSection/Banner";
 import Hero from "@/components/sections/HeroSection/Hero";
 import LongevityIndex from "@/components/sections/LongevitySection/index"
-import { bannerData } from "@/components/sections/BannerSection/bannerData";
+import { bannerData } from "@/components/sections/BannerSection/data/bannerData";
 import AdvancedSection from "@/components/sections/AdvancedLongevitySection";
+import WhyChooseIndex from "@/components/sections/WhyChooseSection";
 export default function Page() {
   return (
     <>
@@ -18,6 +19,7 @@ export default function Page() {
         </>
     
       <AdvancedSection/>
+      <WhyChooseIndex/>
     </>
   )
 }

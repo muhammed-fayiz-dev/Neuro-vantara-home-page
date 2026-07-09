@@ -7,20 +7,24 @@
   --primary: #f9f5f0;
   --secondary: #e2d3c3;
   --dark: #c4aa8d;
-  --extra-dark: #9b7b57;
+  --extra-dark: #95744f;
 
   --border-default: #cbc3bb;
   --border-muted: #e5ded6;
   --border-strong: #8d847c;
 
+  --button-border-light: #a79d95;
+  --button-text-light: #6a625c;
 
-  --button-border-light: #A79D95;
-  --button-text-light: #6A625C;
+  --button-border-dark: rgba(255, 255, 255, 0.45);
+  --button-text-dark: #f8f4ee;
 
-  --button-border-dark: rgba(255,255,255,.45);
-  --button-text-dark: #F8F4EE;
+  --button-circle: #e7dccf;
+  --text-display-xl: clamp(2.5rem, 1.8rem + 2.5vw, 4.5rem); /* 40px → 72px */
+  --text-display-lg: clamp(2rem, 1.5rem + 1.8vw, 3.5rem); /* 32px → 56px */
+  --text-heading: clamp(1.5rem, 1.2rem + 1vw, 2.5rem); /* 24px → 40px */
 
-  --button-circle: #E7DCCF;
+  --text-section: clamp(2rem, 1.35rem + 2vw, 3.75rem);
 
   --space-80: clamp(20px, 2.5vw, 80px);
   /* Container */
@@ -31,6 +35,7 @@
 
   /* Vertical spacing */
   --section-space: clamp(80px, 8vw, 120px);
+  --space-120: clamp(50px, 4.93vw + 30.7px, 120px);
 }
 
 @theme inline {
@@ -40,6 +45,7 @@
   --color-primary: var(--primary);
   --color-secondary: var(--secondary);
   --color-dark: var(--dark);
+  --color-extra-dark: var(--extra-dark);
 
   --color-border-default: var(--border-default);
   --color-border-muted: var(--border-muted);
@@ -52,10 +58,13 @@
   --color-button-text-dark: var(--button-text-dark);
 
   --color-button-circle: var(--button-circle);
-  
+
   --spacing-container: var(--container-padding);
   --spacing-section: var(--section-space);
+  --spacing-120: var(--space-120);
 
+  --text-display: var(--text-display-xl);
+  --text-section: var(--text-section);
   /* Fonts */
   --font-sans: var(--font-dm-sans);
 

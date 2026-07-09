@@ -1,6 +1,5 @@
 import Image from "next/image"
-import { card } from "./advancedLongevityData"
-
+import { card } from "../data/advancedLongevityData"
 
 export const AdvancedLongevityCard = () => {
   return (
@@ -54,5 +53,5 @@ export const AdvancedLongevityCard = () => {
         </div>
       ))}
     </div>
-  );
-};
+  )
+}

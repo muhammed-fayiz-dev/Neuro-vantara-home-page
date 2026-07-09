@@ -11,7 +11,7 @@ export default function LongevityCard({
 }: Props) {
   return (
     <article className="w-[min(78vw,21.25rem)] shrink-0">
-      <div className="relative aspect-[4/5] overflow-hidden rounded-sm">
+      <div className="relative aspect-4/5 overflow-hidden rounded-sm">
         <Image
           src={imageSrc}
           alt={title}
