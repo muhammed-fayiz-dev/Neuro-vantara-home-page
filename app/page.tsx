@@ -5,7 +5,7 @@ import { bannerData } from "@/components/sections/BannerSection/data/bannerData"
 import AdvancedSection from "@/components/sections/AdvancedLongevitySection"
 import BrandSection from "@/components/sections/BrandSection/Index"
 import FormSection from "@/components/sections/FormSection/Index"
-import IndustriesSection from "@/components/sections/IndustriesSection/Index"
+import IndustriesSection from "@/components/sections/IndustriesSection" 
 import WhyChooseSection from "@/components/sections/WhyChooseSection/Index"
 import FooterSection from "@/components/sections/FooterSection/Index"
 
