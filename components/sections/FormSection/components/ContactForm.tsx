@@ -15,7 +15,7 @@ export default function ContactForm() {
 
       <TextAreaField label="Details about your description" rows={4} />
 
-      <Button>Send</Button>
+      <Button theme="dark">Send</Button>
     </form>
   )
 }

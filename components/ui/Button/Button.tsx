@@ -25,8 +25,8 @@ export default function Button({
 
     ${
       theme === "light"
-        ? "border-secondary bg-primary/40 text-secondary hover:bg-primary hover:text-dark"
-        : "border-secondary bg-transparent text-white hover:bg-white hover:text-black"
+        ? "border-secondary bg-none text-secondary hover:bg-primary hover:text-dark"
+        : "border-extra-dark bg-dark text-white hover:bg-primary hover:text-extra-dark"
     }
 
     ${size === "sm" ? "h-8 px-2 pr-4" : "h-10 px-2.5 pr-5"}
@@ -37,12 +37,12 @@ export default function Button({
       <Image
         src="/icon/circle-arrow-right.svg"
         alt=""
-        width={26}
-        height={26}
+        width={27}
+        height={27}
         className="-ml-2 shrink-0 transition-transform duration-300 group-hover:translate-x-1"
       />
 
-      <span className="ml-2 text-[10px] uppercase tracking-[0.12em]">
+      <span className="ml-2 text-button uppercase">
         {children}
       </span>
     </button>

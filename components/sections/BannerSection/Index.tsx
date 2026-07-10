@@ -56,7 +56,7 @@ const Banner: FC<BannerProps> = ({
 
           {/* Right */}
           <div className="flex flex-col gap-3">
-            <Button>EXPLORE</Button>
+            <Button  >EXPLORE</Button>
 
             <Button>VIEW PRODUCTS</Button>
           </div>
