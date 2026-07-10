@@ -5,22 +5,21 @@ import Section from "@/components/layout/SectionLayout"
 
 const FooterBrand = () => {
   return (
-    <Section className="py-0">
-      {/* Logo */}
+    <Section className="pt-0">
 
       <h1
         className="
-    w-full
-    text-center
-    text-brand
-    leading-none
-    font-light
-    lowercase
-    tracking-tight
-    bg-neuro-gradient
-    bg-clip-text
-    text-transparent
-  "
+        w-full
+        text-center
+        text-brand
+        leading-none
+        font-light
+        lowercase
+        tracking-tight
+        bg-neuro-gradient
+        bg-clip-text
+        text-transparent
+        "
       >
         neuro vanta
       </h1>
@@ -35,7 +34,7 @@ const FooterBrand = () => {
         </div>
 
         {/* Contact */}
-        <div className="flex flex-col items-start lg:items-center ">
+        <div className="flex flex-col  items-center ">
           <a
             href={`mailto:${contactData.email}`}
             className="text-3xl lg:text-5xl font-light text-extra-dark"
