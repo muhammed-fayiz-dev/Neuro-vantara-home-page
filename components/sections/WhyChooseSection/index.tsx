@@ -4,7 +4,7 @@ import { ChoiceCard } from "./components/choiceCard";
 
 const WhyChooseSection=()=> {
   return (
-    <Section className="bg-secondary">
+    <Section className="bg-secondary pb-0">
         
       <h2 className="mb-12 text-section font-light uppercase text-extra-dark">
         WHY NEURO VANTA

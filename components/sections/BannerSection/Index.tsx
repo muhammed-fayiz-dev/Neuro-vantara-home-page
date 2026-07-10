@@ -2,6 +2,7 @@ import Image from "next/image"
 import { FC } from "react"
 import BannerFeature from "./components/BannerFeatures"
 import Button from "@/components/ui/Button/Button"
+import Navbar from "@/components/layout/Navbar"
 
 interface BannerProps {
   imageSrc: string
@@ -26,6 +27,7 @@ const Banner: FC<BannerProps> = ({
   return (
     <section className="relative min-h-screen overflow-hidden">
       {/* Background */}
+      
       <Image
         src={imageSrc}
         alt={imageAlt}

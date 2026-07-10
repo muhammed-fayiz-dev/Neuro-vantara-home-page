@@ -7,11 +7,12 @@ import BrandSection from "@/components/sections/BrandSection/Index"
 import FormSection from "@/components/sections/FormSection/Index"
 import IndustriesSection from "@/components/sections/IndustriesSection/Index"
 import WhyChooseSection from "@/components/sections/WhyChooseSection/Index"
-
+import FooterSection from "@/components/sections/FooterSection/Index"
 
 export default function Page() {
   return (
     <>
+    
       <Hero />
       <Banner
         imageSrc="/Banner-bg-1.jpg"
@@ -27,15 +28,15 @@ export default function Page() {
         description="End-to-end design and integration of intelligent wellness environments—where architecture, technology, and human biology work in harmony."
         features={bannerData}
       />
-      
-        <LongevityIndex />
-      
+
+      <LongevityIndex />
 
       <AdvancedSection />
       <WhyChooseSection />
       <IndustriesSection />
-      <BrandSection/>
-      <FormSection/>
+      <BrandSection />
+      <FormSection />
+      <FooterSection/>
     </>
   )
 }

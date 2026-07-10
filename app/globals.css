@@ -7,7 +7,7 @@
   --primary: #f9f5f0;
   --secondary: #e2d3c3;
   --dark: #c4aa8d;
-  --extra-dark: #51463E;
+  --extra-dark: #51463e;
 
   --border-default: #cbc3bb;
   --border-muted: #e5ded6;
@@ -29,7 +29,10 @@
 
   /* Section title: 32px → 60px */
   --text-section: clamp(2rem, 1.46rem + 2.29vw, 3.3rem);
-
+  --text-brand: clamp(3rem,15vw,15rem);
+  --text-180: clamp(3.5rem, 10vw, 12rem);
+  --text-32: clamp(2rem,4vw,4.5rem);
+  --text-20: clamp(1rem,2.5vw,1.25rem);
   --space-80: clamp(20px, 2.5vw, 80px);
   /* Container */
   --container-width: 1720px;
@@ -71,6 +74,10 @@
   --text-display: var(--text-display-xl);
   --text-hero: var(--text-hero);
   --text-section: var(--text-section);
+  --text-180: var(--text-180);
+  --text-32: var(----text-32);
+  --text-20: var(----text-20);
+  --text-brand: var(--text-brand);
   /* Fonts */
   --font-sans: var(--font-dm-sans);
 
@@ -81,4 +88,8 @@ body {
   font-family: var(--font-sans);
   background-color: var(--background);
   color: var(--foreground);
+}
+
+@utility bg-neuro-gradient {
+  background-image: linear-gradient(to right, #7F6157, #C9B6AC, #BFA373, #7F6157);
 }
