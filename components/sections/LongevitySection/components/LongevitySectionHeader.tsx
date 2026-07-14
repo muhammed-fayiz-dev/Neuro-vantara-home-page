@@ -1,7 +1,10 @@
 import { ArrowUpRight } from "lucide-react"
-import { longevityCategory } from "../LongevityData/longevityCategory"
+import longevityCardData, { LongevityCardDataType } from "../data/longevityCardData"
 
-const LongevitySectionHeader = () => {
+interface LongevityHeaderProps{
+  selectCategory:(id:number,ind:number)=>void
+}
+const LongevitySectionHeader:React.FC<LongevityHeaderProps> = ({selectCategory}) => {
   return (
     <header className="flex flex-col mb-10 lg:16 justify-between gap-12 lg:flex-row lg:items-start">
       {/* Title */}
@@ -12,14 +15,15 @@ const LongevitySectionHeader = () => {
       </div>
 
       {/* Categories */}
-      <div className="grid flex-1 grid-cols-1 gap-x-10 md:grid-cols-2">
-        {longevityCategory.map((category: string) => (
+      <div className="grid flex-1 grid-cols-1 gap-x-10 md:grid-cols-2" >
+        {longevityCardData.map((category: LongevityCardDataType,ind) => (
           <div
-            key={category}
+            key={category.id}
+            onClick={()=>selectCategory(category.id,ind)}
             className="group flex cursor-pointer items-center justify-between border-b border-neutral-200 py-3"
           >
-            <p className="text-sm text-neutral-600 transition-colors duration-200 group-hover:text-neutral-900">
-              {category}
+            <p className="text-19 text-neutral-600 transition-colors duration-200 group-hover:text-neutral-900">
+              {category.title}
             </p>
 
             <ArrowUpRight

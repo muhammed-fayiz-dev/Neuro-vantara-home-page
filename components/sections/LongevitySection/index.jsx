@@ -1,26 +1,26 @@
 "use client"
 
-import { useRef } from "react"
+import { useState } from "react"
 import LongevityCards from "./components/LongevityCards"
 import LongevitySectionHeader from "./components/LongevitySectionHeader"
-import Container from "@/components/layout/ContainerLayout"
+import Section from "@/components/layout/SectionLayout"
 
 export default function LongevityIndex() {
-  const sectionRef = useRef(null)
+  const [selectedIndex, setSelectedIndex] = useState(0)
 
+  const selectCategory = (ind) => {
+    setSelectedIndex(ind)
+  }
+ 
   return (
-    <section ref={sectionRef} className="relative pt-80 h-[300vh]">
+    <Section>
       <div className="sticky top-0 h-screen bg-white">
-        <Container>
-          <div className="flex h-full flex-col justify-center">
-            <LongevitySectionHeader />
+        <div className="flex h-full flex-col justify-center">
+          <LongevitySectionHeader selectCategory={selectCategory} />
 
-            <div>
-              <LongevityCards scrollTargetRef={sectionRef} />
-            </div>
-          </div>
-        </Container>
+          <LongevityCards indexId={selectedIndex} />
+        </div>
       </div>
-    </section>
+    </Section>
   )
 }

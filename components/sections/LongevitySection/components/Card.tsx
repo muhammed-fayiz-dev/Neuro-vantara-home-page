@@ -7,22 +7,18 @@ interface Props {
 
 export default function LongevityCard({ imageSrc, title }: Props) {
   return (
-    <article
-      className="flex-none
-w-72
-md:w-80
-lg:w-85"
-    >
-      <div className="relative aspect-4/5 overflow-hidden rounded-sm">
+    <article className="flex-none w-card-image">
+      <div className="relative w-full aspect-553/550 overflow-hidden rounded-sm">
         <Image
           src={imageSrc}
           alt={title}
           fill
           className="object-cover transition-transform duration-500 hover:scale-105"
+          sizes="553px"
         />
       </div>
 
-      <h3 className="mt-3 md:mt-5 mb-5 text-button font-light text-neutral-700">{title}</h3>
+      <h3 className="mt-5 text-30 font-light text-neutral-700">{title}</h3>
     </article>
   )
 }

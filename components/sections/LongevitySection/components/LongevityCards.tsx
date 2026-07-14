@@ -1,32 +1,27 @@
 "use client"
 
-import { useRef } from "react"
-import { motion } from "framer-motion"
 import LongevityCard from "./Card"
-import longevityCardData from "../LongevityData/longevityCardData"
-import { useHorizontalScroll } from "../animation/useHorizontalScroll"
 
-interface LongevityCardsProps {
-  scrollTargetRef: React.RefObject<HTMLElement | null>
+import longevityCardData, { ImageData } from "../data/longevityCardData"
+interface CardProps{
+
+  indexId:number
 }
 
-export default function LongevityCards({
-  scrollTargetRef,
-}: LongevityCardsProps) {
-  const trackRef = useRef<HTMLDivElement | null>(null)
-  const { x } = useHorizontalScroll(scrollTargetRef, trackRef)
+export default function LongevityCards({indexId}:CardProps) {
+
 
   return (
-    <div className="overflow-hidden">
-      <motion.div ref={trackRef} style={{ x }} className="flex gap-8">
-        {longevityCardData.map((card) => (
+    <div className="flex gap-3">
+      
+        {longevityCardData[indexId].imageSrc.map((card:ImageData) => (
           <LongevityCard
-            key={card.id}
-            imageSrc={card.imageSrc}
-            title={card.title}
+            key={card.image}
+            imageSrc={card.image}
+            title={card.footNote}
           />
         ))}
-      </motion.div>
+      
     </div>
   )
 }
