@@ -2,7 +2,7 @@
 
 import Image from "next/image"
 
-import { Variants ,motion} from "framer-motion";
+import { Variants, motion } from "framer-motion"
 
 export const containerVariants: Variants = {
   hidden: {},
@@ -11,7 +11,7 @@ export const containerVariants: Variants = {
       staggerChildren: 0.12,
     },
   },
-};
+}
 
 export const itemVariants: Variants = {
   hidden: {
@@ -26,7 +26,7 @@ export const itemVariants: Variants = {
       ease: "easeOut",
     },
   },
-};
+}
 interface ChoiceCardProps {
   icon: string
   title: string
@@ -67,23 +67,36 @@ export function ChoiceCard({ icon, title, description }: ChoiceCardProps) {
       </div>
 
       {/* Content */}
-      <div className="mt-24">
-        <h3
-          className="
-        text-30
-        font-light
-        leading-tight
-        text-dark
-        transition-colors
-        duration-300
-        group-hover:text-white
+      <div
+        className="
+      mt-auto
+      transition-transform
+      duration-500
+      ease-out
+      group-hover:-translate-y-10
     "
-        >
-          {title}
-        </h3>
+      >
+        <h3 className="...">{title}</h3>
 
         {description && (
-          <p className="mt-4 text-19 leading-7 text-neutral-600 transition-colors duration-300 group-hover:text-white/90">
+          <p
+            className="
+          mt-4
+    max-h-0
+    overflow-hidden
+
+    opacity-0
+    translate-y-8
+    transition
+    duration-500
+    ease-out
+    group-hover:max-h-40
+    group-hover:opacity-100
+    group-hover:translate-y-0
+    group-hover:transition-1
+    group-hover:text-white/90
+        "
+          >
             {description}
           </p>
         )}
