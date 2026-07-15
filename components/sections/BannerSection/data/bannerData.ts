@@ -1,3 +1,14 @@
+export interface BannerSlide {
+  title: string
+  description: string
+  features: Feature[]
+}
+
+export interface Feature {
+  id: string
+  title: string
+  image: string
+}
 export const bannerData = {
   section1: [
     {

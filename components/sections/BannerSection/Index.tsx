@@ -1,10 +1,11 @@
 "use client"
 import Image from "next/image"
 import { FC } from "react"
-import BannerFeature from "./components/BannerFeatures"
-import Button from "@/components/ui/Button/Button"
+
 import { useEffect, useState } from "react"
 import { AnimatePresence, motion } from "framer-motion"
+import { DesktopBanner } from "./components/DesktopBanner"
+import MobileBanner from "./components/MobileBanner"
 interface BannerProps {
   title: string
   description: string
@@ -24,10 +25,9 @@ const Banner: FC<BannerProps> = ({ title, description, features }) => {
     }, 3000)
 
     return () => clearInterval(interval)
-  }, [activeIndex,features.length])
+  }, [activeIndex, features.length])
   return (
-    <section className="sticky top-0 h-screen overflow-hidden">
- 
+    <section className="sticky top-0 h-screen bg-black overflow-hidden">
       <AnimatePresence mode="sync">
         <motion.div
           key={features[activeIndex].image}
@@ -61,41 +61,20 @@ const Banner: FC<BannerProps> = ({ title, description, features }) => {
       <div className="absolute inset-0 bg-black/45" />
 
       {/* Main Content */}
-      <div className="relative z-10 flex min-h-screen flex-col justify-between px-6 py-10 lg:px-16 lg:py-14">
-        {/* Top Section */}
-        <div className="flex flex-col gap-10 lg:flex-row lg:items-start lg:justify-between">
-          {/* Left */}
-          <div className="max-w-2xl">
-            <h1 className="text-section font-light uppercase leading-tight tracking-tight text-white md:text-5xl lg:text-6xl">
-              {title}
-            </h1>
+      <DesktopBanner
+        title={title}
+        description={description}
+        features={features}
+        activeIndex={activeIndex}
+        setActiveIndex={setActiveIndex}
+      />
 
-            <p className="mt-6 max-w-lg text-19 leading-7 text-white/80">
-              {description}
-            </p>
-          </div>
-
-          {/* Right */}
-          <div className="flex flex-col items-end gap-3">
-            <Button>EXPLORE</Button>
-
-            <Button>VIEW PRODUCTS</Button>
-          </div>
-        </div>
-
-        {/* Bottom Features */}
-        <div className="grid gap-8  pt-8 md:grid-cols-2 lg:grid-cols-4">
-          {features.map((feature, index) => (
-            <BannerFeature
-              key={feature.id}
-              id={feature.id}
-              title={feature.title}
-              active={activeIndex === index}
-              onClick={() => setActiveIndex(index)}
-            />
-          ))}
-        </div>
-      </div>
+      <MobileBanner
+        title={title}
+        description={description}
+        features={features}
+        activeIndex={activeIndex}
+      />
     </section>
   )
 }
