@@ -14,8 +14,16 @@ const longevityCardData: LongevityCardDataType[] = [
     id: 1,
     imageSrc: [
       {
-        image: "/longevity_files/Longevity-card-image-2.jpg",
+        image: "/longevity_files/Longevity-card-image-1.png",
         footNote: "Infrared Saunas",
+      },
+       {
+        image: "/longevity_files/Longevity-card-image-2.jpg",
+        footNote: "Salt Therapy Rooms (Halotherapy)",
+      },
+      {
+        image: "/longevity_files/Longevity-card-image-3.jpg",
+        footNote: "Finnish Sauna",
       },
     ],
     title: "Recovery & Regeneration Therapies",
