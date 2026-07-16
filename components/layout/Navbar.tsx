@@ -16,7 +16,7 @@ const Navbar = () => {
         </button>
 
         {/* Center */}
-        <Image src={"/icon/logo.svg"} width={320} height={40} alt="logo" className="w-39.5 h-5 md:w-xs md:h-10"/>
+        <Image src={"/icon/logo-mask.svg"} width={320} height={40} alt="logo" className="w-39.5 h-5 md:w-xs md:h-10"/>
 
         {/* Right */}
         <div className="flex items-center gap-2 sm:gap-3 lg:gap-4">

@@ -8,7 +8,7 @@ const FooterBrand = () => {
     <Section className="pt-0">
       <RevealItem>
         <Image
-          src="/icon/logo.svg"
+          src="/icon/logo.mask.svg"
           alt="logo"
           width={1720}
           height={218}
