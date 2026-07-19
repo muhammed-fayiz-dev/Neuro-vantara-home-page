@@ -29,48 +29,74 @@ const LongevitySectionHeader: React.FC<LongevityHeaderProps> = ({
 
     return () => document.removeEventListener("mousedown", handleClick)
   }, [])
-
+  const columns = 2
+  const lastRowStart =
+    Math.floor((longevityCardData.length - 1) / columns) * columns
   return (
-    <header className="flex flex-col justify-between gap-7 md:gap-12 lg:flex-row lg:justify-between">
-    
+    <header className="flex flex-wrap xl:flex-nowrap items-start justify-between  lg:flex-row lg:justify-between">
       <div className="flex self-stretch">
-        <h2 className="section-heading">LONGEVITY SYSTEMS</h2>
+        <h2 className="section-heading ">LONGEVITY SYSTEMS</h2>
       </div>
 
-    
       <div className="hidden grid-cols-2 gap-x-10 md:grid">
-        {longevityCardData.map((category: LongevityCardDataType, ind) => (
-          <div
-            key={category.id}
-            onClick={() => setSelectedIndex(ind)}
-            className="group flex cursor-pointer items-center justify-between border-b border-neutral-200 py-3"
-          >
-            <p
-              className={`text-19 transition-colors duration-200 ${
-                selectedIndex === ind
-                  ? "font-medium text-neutral-900"
-                  : "text-extra-dark"
-              }`}
+        {longevityCardData.map((category: LongevityCardDataType, ind) => {
+          const isLastRow = ind >= lastRowStart
+
+          return (
+            <div
+              key={category.id}
+              onClick={() => setSelectedIndex(ind)}
+              className={`
+    group
+    relative
+    flex
+    cursor-pointer
+    items-center
+    justify-between
+    overflow-hidden
+    border-[#c9c9c9]
+    py-3
+    ${isLastRow ? "" : "border-b"}
+  `}
             >
-              {category.title}
-            </p>
+              {/* Gradient Overlay */}
+              <div
+                className="
+    absolute
+    inset-0
+    opacity-0
+    transition-opacity
+    duration-300
+    group-hover:opacity-100
+    bg-[radial-gradient(ellipse_140%_100%_at_center,rgba(224,224,224,.35)_0%,rgba(224,224,224,.12)_55%,transparent_100%)]
+  "
+              />
+              {/* Content */}
+              <p
+                className={`relative z-10 text-19 transition-colors duration-200 ${
+                  selectedIndex === ind
+                    ? "font-medium text-neutral-900"
+                    : "text-extra-dark"
+                }`}
+              >
+                {category.title}
+              </p>
 
-            <ArrowUpRight
-              size={18}
-              strokeWidth={1.5}
-              className={`transition-all duration-300 ${
-                selectedIndex === ind
-                  ? "translate-x-0 opacity-100"
-                  : "translate-x-1 opacity-0 group-hover:translate-x-0 group-hover:opacity-100"
-              }`}
-            />
-          </div>
-        ))}
+              <ArrowUpRight
+                size={22}
+                strokeWidth={1.5}
+                className={`relative z-10 transition-all duration-300 ${
+                  selectedIndex === ind
+                    ? "translate-x-0 opacity-100"
+                    : "translate-x-1 opacity-0 group-hover:translate-x-0 group-hover:opacity-100"
+                }`}
+              />
+            </div>
+          )
+        })}
       </div>
-
-      
+      {/* mobile layout */}
       <div ref={ref} className="relative md:hidden">
-     
         <button
           onClick={() => setIsOpen(!isOpen)}
           className="
@@ -79,25 +105,24 @@ const LongevitySectionHeader: React.FC<LongevityHeaderProps> = ({
       items-center
       justify-between
       rounded-sm
-      py-3
+      // py-[15px]
       border-t
       border-b
       border-extra-dark/60
     "
         >
-          <span className="pl-3 text-30 text-extra-dark ">
+          <span className=" text-19 text-extra-dark ">
             {longevityCardData[selectedIndex].title}
           </span>
 
           <ChevronDown
-          width={50}
-          height={50}
-            className={`pr-3 text-extra-dark ptransition-transform duration-300 ${
+            width={30}
+            height={30}
+            className={` text-extra-dark ptransition-transform duration-300 ${
               isOpen ? "rotate-180" : ""
             }`}
           />
         </button>
-
 
         <AnimatePresence>
           {isOpen && (
@@ -154,7 +179,7 @@ const LongevitySectionHeader: React.FC<LongevityHeaderProps> = ({
                 border-b
                 border-neutral-200
                 px-5
-                py-4
+               py-4
                 text-left
                 hover:bg-neutral-50
               "

@@ -37,10 +37,7 @@ const WhyChooseSection = () => {
   }, [isHovered])
   return (
     <Section className="bg-secondary h-sreen pb-0">
-      <RevealItem
-        trigger="viewport"
-        className="mb-12 section-heading"
-      >
+      <RevealItem trigger="viewport" className="mb-12 section-heading">
         WHY NEURO VANTA
       </RevealItem>
 
@@ -86,7 +83,7 @@ const WhyChooseSection = () => {
                     setIsHovered(true)
                     setActiveIndex(index)
                   }}
-                  onHoverEnd={()=> setIsHovered(false)}
+                  onHoverEnd={() => setIsHovered(false)}
                 />
               </RevealItem>
             </SwiperSlide>

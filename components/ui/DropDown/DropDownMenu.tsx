@@ -2,8 +2,8 @@
 
 import { AnimatePresence, motion } from "framer-motion"
 import DropdownItem from "./DropdownItem"
-import { menuVariants } from "./animation" 
-import { DropdownProps } from "./type" 
+import { menuVariants } from "./animation"
+import { DropdownProps } from "./type"
 
 interface DropdownMenuProps<T> extends DropdownProps<T> {
   isOpen: boolean

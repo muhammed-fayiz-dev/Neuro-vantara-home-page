@@ -1,12 +1,12 @@
 export interface LongevityCardDataType {
-  id: number;
-  imageSrc: ImageData[];
-  title: string;
+  id: number
+  imageSrc: ImageData[]
+  title: string
 }
 
 export interface ImageData {
-  image: string;
-  footNote: string;
+  image: string
+  footNote: string
 }
 
 const longevityCardData: LongevityCardDataType[] = [
@@ -17,7 +17,7 @@ const longevityCardData: LongevityCardDataType[] = [
         image: "/longevity_files/Longevity-card-image-1.png",
         footNote: "Infrared Saunas",
       },
-       {
+      {
         image: "/longevity_files/Longevity-card-image-2.jpg",
         footNote: "Salt Therapy Rooms (Halotherapy)",
       },
@@ -84,6 +84,6 @@ const longevityCardData: LongevityCardDataType[] = [
     ],
     title: "Neuro & Cognitive Optimization",
   },
-];
+]
 
-export default longevityCardData;
+export default longevityCardData

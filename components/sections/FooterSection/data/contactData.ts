@@ -1,7 +1,7 @@
 export interface SocialMedia {
-  name: string;
-  icon: string;
-  href: string;
+  name: string
+  icon: string
+  href: string
 }
 
 export const socialMedia: SocialMedia[] = [
@@ -25,7 +25,7 @@ export const socialMedia: SocialMedia[] = [
     icon: "/icon/media/youtube.svg",
     href: "https://youtube.com",
   },
-];
+]
 
 export const contactData = {
   company: "Neuro Vanta",
@@ -39,4 +39,4 @@ export const contactData = {
   email: "mail@360-wellness.com",
 
   phone: "+97143332175",
-};
+}

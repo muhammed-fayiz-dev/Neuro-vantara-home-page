@@ -8,6 +8,7 @@ export interface BannerProps {
   title: string
   description: string
   features: Feature[]
+  descriptionMax_w: string
 }
 
 export interface DesktopBannerProps extends BannerProps {

@@ -1,8 +1,8 @@
-import Image from "next/image";
+import Image from "next/image"
 
 interface Props {
-  icon: string;
-  index: number;
+  icon: string
+  index: number
 }
 
 const BrandCard = ({ icon, index }: Props) => {
@@ -28,8 +28,7 @@ const BrandCard = ({ icon, index }: Props) => {
         className="h-auto w-full object-contain grayscale transition duration-300 hover:grayscale-0"
       />
     </article>
-  );
-};
-
+  )
+}
 
 export default BrandCard

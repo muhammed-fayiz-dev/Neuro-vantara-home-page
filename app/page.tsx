@@ -12,24 +12,24 @@ import FooterSection from "@/components/sections/FooterSection/Index"
 export default function Page() {
   return (
     <>
-    <div className="relative">
-
-      <Hero />
-      <Banner
-      
-        title="BESPOKE WELLNESS & LONGEVITY SOLUTIONS"
-        description="Personalized, science-led systems tailored to individual physiology, lifestyle, and performance goals."
-        features={bannerData.section1}
-      />
-      <Banner
-       
-      
-        title="WELLNESS SPACE DESIGN"
-        description="End-to-end design and integration of intelligent wellness environments—where architecture, technology, and human biology work in harmony."
-        features={bannerData.section2}
-      />
-    </div>
-     
+      <div className="relative">
+        <Hero />
+        <Banner
+          title="BESPOKE WELLNESS & LONGEVITY SOLUTIONS"
+          description="Neurovanta equips businesses and individuals with advanced longevity
+systems - purpose-built to strengthen wellness offerings, enhance client
+outcomes and set a higher standard of care"
+          features={bannerData.section1}
+          descriptionMax_w="2xl"
+        />
+        <Banner
+          title="WELLNESS SPACE DESIGN"
+          description="From concept to completion, we design and deliver intelligent wellness environments that meet
+the operational demands of modern wellness businesses."
+          features={bannerData.section2}
+          descriptionMax_w="4xl"
+        />
+      </div>
 
       <LongevityIndex />
 

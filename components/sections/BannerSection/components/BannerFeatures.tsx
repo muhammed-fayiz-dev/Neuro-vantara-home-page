@@ -14,10 +14,18 @@ const BannerFeature: FC<BannerFeatureProps> = ({
   onClick,
 }) => {
   return (
-    <div onClick={onClick} className="group flex flex-col gap-3">
-      <span className="text-xs text-white/60">{id}</span>
+    <div onClick={onClick} className="group flex flex-col">
+      <span
+        className={`"text-19 mb-[14px]  ${active ? "text-white" : "text-white/80"}`}
+      >
+        {id}
+      </span>
 
-      <h3 className="text-sm  text-white">{title}</h3>
+      <h3
+        className={`"text-19 mb-[24px]  ${active ? "text-white" : "text-white/80"}`}
+      >
+        {title}
+      </h3>
 
       <div
         className={`

@@ -1,13 +1,13 @@
-"use client";
+"use client"
 
-import { useEffect } from "react";
-import Lenis from "lenis";
-import "lenis/dist/lenis.css";
+import { useEffect } from "react"
+import Lenis from "lenis"
+import "lenis/dist/lenis.css"
 
 export default function ScrollProvider({
   children,
 }: {
-  children: React.ReactNode;
+  children: React.ReactNode
 }) {
   useEffect(() => {
     const lenis = new Lenis({
@@ -15,12 +15,12 @@ export default function ScrollProvider({
       smoothWheel: true,
       touchMultiplier: 2,
       autoRaf: true,
-    });
+    })
 
     return () => {
-      lenis.destroy();
-    };
-  }, []);
+      lenis.destroy()
+    }
+  }, [])
 
-  return <>{children}</>;
+  return <>{children}</>
 }

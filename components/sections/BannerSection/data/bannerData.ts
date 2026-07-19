@@ -32,7 +32,7 @@ export const bannerData = {
       image: "/banner images/image 4.jpg",
     },
   ],
-  section2:[
+  section2: [
     {
       id: "01",
       title: "Personalized to Individual Biology",

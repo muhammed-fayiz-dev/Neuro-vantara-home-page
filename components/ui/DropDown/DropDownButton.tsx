@@ -30,9 +30,7 @@ export default function DropdownButton({
         text-white
       "
     >
-      <span className="text-18 font-medium">
-        {label}
-      </span>
+      <span className="text-18 font-medium">{label}</span>
 
       <motion.div
         animate={{

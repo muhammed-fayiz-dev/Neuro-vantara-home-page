@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { itemVariants } from "./animation" 
+import { itemVariants } from "./animation"
 
 interface DropdownItemProps {
   label: string

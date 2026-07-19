@@ -1,17 +1,11 @@
-interface Props
-  extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
-  label: string;
+interface Props extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
+  label: string
 }
 
-export default function TextAreaField({
-  label,
-  ...props
-}: Props) {
+export default function TextAreaField({ label, ...props }: Props) {
   return (
     <div className="flex flex-col">
-      <label className="mb-3 text-xs text-extra-dark">
-        {label}
-      </label>
+      <label className="mb-3 text-xs text-extra-dark">{label}</label>
 
       <textarea
         rows={4}
@@ -29,5 +23,5 @@ export default function TextAreaField({
         "
       />
     </div>
-  );
+  )
 }

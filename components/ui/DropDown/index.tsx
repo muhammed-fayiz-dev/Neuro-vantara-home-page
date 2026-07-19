@@ -2,10 +2,10 @@
 
 import { useEffect, useRef, useState } from "react"
 
-import DropdownButton from "./DropDownButton" 
-import DropdownMenu from "./DropDownMenu" 
+import DropdownButton from "./DropDownButton"
+import DropdownMenu from "./DropDownMenu"
 
-import { DropdownProps } from "./type" 
+import { DropdownProps } from "./type"
 
 export default function Dropdown<T>({
   items,
@@ -35,10 +35,7 @@ export default function Dropdown<T>({
   }, [])
 
   return (
-    <div
-      ref={dropdownRef}
-      className="relative w-full"
-    >
+    <div ref={dropdownRef} className="relative w-full">
       <DropdownButton
         label={getLabel(items[value])}
         isOpen={isOpen}

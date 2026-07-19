@@ -19,7 +19,7 @@ export default function LongevityIndex() {
             setSelectedIndex={setSelectedIndex}
           />
 
-          <div className="hidden md:block mt-15">
+          <div className="hidden md:block z-30 mt-15">
             <LongevityCards indexId={selectedIndex} />
           </div>
 

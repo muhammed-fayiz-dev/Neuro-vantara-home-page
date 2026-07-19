@@ -1,11 +1,11 @@
 "use client"
-import Image from "next/image"
-import { FC } from "react"
 
-import { useEffect, useState } from "react"
+import Image from "next/image"
+import { FC, useEffect, useState } from "react"
 import { AnimatePresence, motion } from "framer-motion"
+
 import { DesktopBanner } from "./components/DesktopBanner"
-import MobileBanner from "./components/MobileBanner"
+
 interface BannerProps {
   title: string
   description: string
@@ -14,9 +14,15 @@ interface BannerProps {
     title: string
     image: string
   }[]
+  descriptionMax_w: string
 }
 
-const Banner: FC<BannerProps> = ({ title, description, features }) => {
+const Banner: FC<BannerProps> = ({
+  title,
+  description,
+  features,
+  descriptionMax_w,
+}) => {
   const [activeIndex, setActiveIndex] = useState(0)
 
   useEffect(() => {
@@ -25,28 +31,19 @@ const Banner: FC<BannerProps> = ({ title, description, features }) => {
     }, 3000)
 
     return () => clearInterval(interval)
-  }, [activeIndex, features.length])
+  }, [features.length])
+
   return (
-    <section className="sticky top-0 h-screen bg-black overflow-hidden">
-      <AnimatePresence mode="sync">
+    <section className="relative h-screen overflow-hidden bg-black">
+      {/* Background */}
+      <AnimatePresence mode="wait">
         <motion.div
           key={features[activeIndex].image}
-          initial={{
-            opacity: 0,
-            scale: 1.05,
-          }}
-          animate={{
-            opacity: 1,
-            scale: 1,
-          }}
-          exit={{
-            opacity: 0,
-            scale: 1.02,
-          }}
-          transition={{
-            duration: 0.9,
-          }}
           className="absolute inset-0"
+          initial={{ opacity: 0, scale: 1.05 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 1.02 }}
+          transition={{ duration: 0.9 }}
         >
           <Image
             src={features[activeIndex].image}
@@ -57,24 +54,23 @@ const Banner: FC<BannerProps> = ({ title, description, features }) => {
           />
         </motion.div>
       </AnimatePresence>
+
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/45" />
 
-      {/* Main Content */}
-      <DesktopBanner
-        title={title}
-        description={description}
-        features={features}
-        activeIndex={activeIndex}
-        setActiveIndex={setActiveIndex}
-      />
-
-      <MobileBanner
-        title={title}
-        description={description}
-        features={features}
-        activeIndex={activeIndex}
-      />
+      {/* Content */}
+      <div className="relative z-10 h-full">
+        <div className="container h-full">
+          <DesktopBanner
+            title={title}
+            description={description}
+            features={features}
+            activeIndex={activeIndex}
+            setActiveIndex={setActiveIndex}
+            descriptionMax_w={descriptionMax_w}
+          />
+        </div>
+      </div>
     </section>
   )
 }

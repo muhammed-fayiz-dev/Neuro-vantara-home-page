@@ -18,7 +18,7 @@ export default function MobileLongevitySwiper({ images }: Props) {
   const [swiper, setSwiper] = useState<SwiperType | null>(null)
 
   return (
-    <div className="md:hidden mt-7">
+    <div className="md:hidden z-30 mt-7">
       <Swiper
         key={images.map((item) => item.image).join("-")}
         onSwiper={setSwiper}
@@ -32,17 +32,10 @@ export default function MobileLongevitySwiper({ images }: Props) {
                 className={`
                   transition-all
                   duration-500
-                  ${
-                    isActive
-                      ? "scale-100 opacity-100"
-                      : "scale-90 opacity-50"
-                  }
+                  ${isActive ? "scale-100 opacity-100" : "scale-90 opacity-50"}
                 `}
               >
-                <LongevityCard
-                  imageSrc={item.image}
-                  title={item.footNote}
-                />
+                <LongevityCard imageSrc={item.image} title={item.footNote} />
               </div>
             )}
           </SwiperSlide>

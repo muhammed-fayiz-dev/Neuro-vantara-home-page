@@ -52,7 +52,6 @@ const themes = {
   },
 } as const
 
-
 export default function Button({
   children,
   theme = "light",
@@ -111,9 +110,11 @@ export default function Button({
       {/* Background Fill */}
       <motion.div
         className={`absolute inset-y-0 left-0 rounded-full ${currentTheme.fill}`}
-        initial={{ width: 40 }}
+        initial={{
+          width: iconWidth,
+        }}
         animate={{
-          width: active ? "100%" : 40,
+          width: active ? "100%" : iconWidth,
         }}
         transition={{
           duration: 0.45,
@@ -151,7 +152,7 @@ export default function Button({
           }}
         >
           <ChevronRight
-            className={`h-4 w-4 md:h-7 md:w-7  ${active ? currentTheme.activeChevron : currentTheme.chevron} ${theme === "light" ? "border-secondary" : "border-extra-darkT"          }`}
+            className={`h-4 w-4 md:h-7 md:w-7  ${active ? currentTheme.activeChevron : currentTheme.chevron} ${theme === "light" ? "border-secondary" : "border-extra-darkT"}`}
             strokeWidth={2}
             // color="#3F3A35"
           />
@@ -160,24 +161,22 @@ export default function Button({
 
       {/* Text */}
       <motion.span
+        style={{
+          paddingLeft: iconWidth + 14,
+          paddingRight: 20,
+        }}
         className="
           relative
           z-10
-          pl-11
-          pr-4
-          sm:pl-12
-          sm:pr-5
-          lg:pl-14
-          lg:pr-6
+        //  py-1.75
+        //  lg:py-3
           whitespace-nowrap
           uppercase
           text-button
         "
         animate={{
-          x: active ? -30 : 0,
-          color: active
-        ? currentTheme.activeText
-        : currentTheme.text,
+          x: active ? -(iconWidth - 14) : 0,
+          color: active ? currentTheme.activeText : currentTheme.text,
         }}
         transition={{
           duration: 0.45,

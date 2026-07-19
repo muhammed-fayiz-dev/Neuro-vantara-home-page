@@ -4,22 +4,23 @@ import Image from "next/image"
 import { motion, Variants } from "framer-motion"
 import { card } from "../data/advancedLongevityData"
 
-const rowVariants = {
+const spring = {
+  type: "spring" as const,
+  stiffness: 320,
+  damping: 28,
+}
+
+const rowVariants: Variants = {
   rest: {
     scale: 1,
   },
   hover: {
     scale: 1.015,
-
-    transition: {
-      type: "spring" as const,
-      stiffness: 320,
-      damping: 30,
-    },
+    transition: spring,
   },
 }
 
-const overlayVariants = {
+const overlayVariants: Variants = {
   rest: {
     scaleX: 0,
     originX: 0,
@@ -29,118 +30,147 @@ const overlayVariants = {
     originX: 0,
     transition: {
       duration: 0.45,
-      ease: [0.22, 1, 0.36, 1] as const,
+      ease: [0.22, 1, 0.36, 1],
     },
   },
 }
-const titleVariants = {
+const contentVariants = {
   rest: {
-    color: "#1d1d1d",
     x: 0,
   },
   hover: {
-    color: "#111111",
-    x: 8,
-    transition: {
-      type: "spring" as const,
-      duration: 0.35,
-    },
+    x: 18,
+    transition: spring,
   },
 }
 
-const valueVariants = {
-  rest: {
-    color: "#1d1d1d",
-  },
-  hover: {
-    color: "#111111",
-    transition: {
-      type: "spring" as const,
-      duration: 0.35,
-    },
-  },
-}
-
-const iconVariants:Variants  = {
+const iconVariants = {
   rest: {
     opacity: 0,
-    x: 20,
-    scale: 0.5,
+    x: 30,
   },
   hover: {
     opacity: 1,
     x: 0,
-    scale: 1.3,
-    transition: {
-      type: "spring",
-      stiffness: 300,
-      damping: 20,
-    },
+    transition: spring,
   },
 }
 
-export const AdvancedLongevityCard = () => {
+export default function AdvancedLongevityCard() {
   return (
-    <div className="w-full lg:w-3/5">
+    <div className="flex flex-col lg:flex-1 w-full max-w-[1136px] relative">
       {card.map((item) => (
-     
-          <motion.div
-           key={item.value}
-            layout
-            initial="rest"
-            animate="rest"
-            whileHover="hover"
-            variants={rowVariants}
-            transition={{
-              layout: {
-                type: "spring",
-                stiffness: 400,
-                damping: 35,
-              },
-            }}
-            className="group relative overflow-hidden border-t border-neutral-300 bg-primary px-4 py-6 md:px-6"
+        <motion.article
+          key={item.value}
+          initial="rest"
+          animate="rest"
+          whileHover="hover"
+          variants={rowVariants}
+          className="relative"
+        >
+          {/* Border */}
+          <div className="h-px w-full bg-neutral-300" />
+
+          {/* Row */}
+          <div
+            className="
+      relative
+      flex
+      h-[82px]
+      sm:h-auto
+      px-20
+      sm:px-60
+      py-[24px]
+      sm:py-40
+      transition-all
+      duration-300
+      ease-in-out
+    "
           >
-            {/* Background Reveal */}
+            {/* Hover Background */}
             <motion.div
               variants={overlayVariants}
-              className="absolute inset-0 origin-left bg-secondary"
+              className="
+        absolute
+        inset-0
+        bg-secondary
+        origin-left
+      "
             />
 
             {/* Content */}
-            <div className="relative z-10 grid grid-cols-[80px_1fr_40px] items-center gap-6">
+            <motion.div
+              variants={contentVariants}
+              className="
+        relative
+        z-10
+        flex
+        items-center
+        w-full
+        sm:min-h-[60px]
+        md:min-h-[70px]
+
+        gap-[30px]
+        md:gap-[50px]
+        2xl:gap-0
+      "
+            >
               {/* Number */}
-              <motion.div
-                variants={valueVariants}
-                className="w-fit text-section font-light text-extra-dark"
+              <span
+                className="
+          shrink-0
+          sm:min-w-[94px]
+          3xl:min-w-[104px]
+          text-section
+          text-extra-dark
+        "
               >
                 {item.value}
-              </motion.div>
+              </span>
 
               {/* Title */}
-              <motion.p
-                variants={titleVariants}
-                className="flex-1 text-30 text-extra-dark"
+              <h3
+                className="
+          flex-1
+          text-30
+          tracking-[-0.03em]
+          text-extra-dark
+
+          lg:pl-80
+          xl:pl-160
+          2xl:pl-[220px]
+          3xl:pl-[347px]
+        "
               >
                 {item.title}
-              </motion.p>
+              </h3>
 
               {/* Icon */}
               <motion.div
-                variants={iconVariants }
-                className="flex w-8 justify-end"
+                variants={iconVariants}
+                className="
+          flex
+          justify-end
+          shrink-0
+          w-[72px]
+        "
               >
                 <Image
                   src={item.icon}
                   alt={item.title}
-                  width={42}
-                  height={40}
-                  className="md:w-72px md:h-70px"
-
+                  width={72}
+                  height={70}
+                  className="w-[42px] h-[40px] md:w-[52px] md:h-[50px] xl:w-[72px] xl:h-[70px] object-contain"
                 />
               </motion.div>
-            </div>
-          </motion.div>
-       
+            </motion.div>
+          </div>
+
+          {/* Last Border */}
+          {item === card[card.length - 1] && (
+            <div className="h-px w-full bg-neutral-300" />
+          )}
+        </motion.article>
       ))}
     </div>
   )

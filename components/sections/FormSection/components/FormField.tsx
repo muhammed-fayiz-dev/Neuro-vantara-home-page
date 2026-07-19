@@ -1,16 +1,11 @@
 interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
-  label: string;
+  label: string
 }
 
-export default function FormField({
-  label,
-  ...props
-}: Props) {
+export default function FormField({ label, ...props }: Props) {
   return (
     <div className="flex flex-col">
-      <label className="mb-3 text-xs text-extra-dark">
-        {label}
-      </label>
+      <label className="mb-3 text-xs text-extra-dark">{label}</label>
 
       <input
         {...props}
@@ -26,5 +21,5 @@ export default function FormField({
         "
       />
     </div>
-  );
+  )
 }

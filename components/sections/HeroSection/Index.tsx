@@ -16,28 +16,32 @@ export default function Hero() {
         <source src="/Neuro_vanta_Header_1.mp4" type="video/mp4" />
       </video>
 
-      <div className="absolute inset-0 bg-black/40" />
-
-      <Navbar />
+      <div className="absolute inset-0 bg-black/60" />
 
       {/* Hero Content */}
-      <div className="relative z-10 flex min-h-screen flex-col items-center justify-end px-5 md:px-8 lg:px-10 pb-20 md:pb-25 text-center text-white">
+      <div className="container relative z-10 pb-[clamp(3.75rem,5.84vw+2.38rem,9.375rem)] min-h-screen flex flex-col items-center justify-end   gap-[20px] sm:gap-[50px]    text-white">
         <RevealItem
           trigger="load"
           className="
     text-hero
+    text-center
     uppercase
     leading-[1.112]
-    tracking-[-0.03em]
     max-w-[28ch] lg:max-w-[30ch]
     mx-auto
+    tracking-[-0.05em]
    
   "
         >
-          Advanced Longevity.<br/> Designed for Life Performance.
+          Advanced Longevity.
+          <br />
+          Designed for Life Performance.
         </RevealItem>
-        <RevealItem className="mt-[clamp(2rem,4vw,4rem)]">
-          <Button>For Individual</Button>
+        <RevealItem
+          trigger="load"
+          // className="mt-[clamp(2rem,4vw,4rem)]"
+        >
+          <Button className="uppercase">Longevity Systems</Button>
         </RevealItem>
       </div>
     </section>

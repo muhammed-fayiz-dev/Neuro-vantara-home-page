@@ -4,7 +4,6 @@ import Image from "next/image"
 
 import { Variants, motion } from "framer-motion"
 
-
 export const containerVariants: Variants = {
   hidden: {},
   show: {
@@ -96,7 +95,7 @@ export function ChoiceCard({
       ${active ? "md:-translate-y-10 text-white/70" : "text-extra-dark"}
     `}
       >
-        <h3 className= "text-30">{title}</h3>
+        <h3 className="text-30">{title}</h3>
 
         {description && (
           <p

@@ -1,12 +1,11 @@
-import Image from "next/image";
+import Image from "next/image"
 
 interface Props {
-  title: string;
-  icon:string
-
+  title: string
+  icon: string
 }
 
-const IndustriesCard:React.FC<Props>=({ title ,icon })=> {
+const IndustriesCard: React.FC<Props> = ({ title, icon }) => {
   return (
     <article
       className="
@@ -23,11 +22,17 @@ const IndustriesCard:React.FC<Props>=({ title ,icon })=> {
       "
     >
       <div className="md:hidden">
-        <Image  src={icon} alt={icon} width={32} height={32} className=" -translate-x-2
+        <Image
+          src={icon}
+          alt={icon}
+          width={32}
+          height={32}
+          className=" -translate-x-2
           transition-all
           duration-300
           group-hover:translate-x-0
-          group-hover:opacity-100"/>
+          group-hover:opacity-100"
+        />
       </div>
       <h3
         className="
@@ -54,11 +59,17 @@ const IndustriesCard:React.FC<Props>=({ title ,icon })=> {
           duration-300
           group-hover:translate-x-0
           group-hover:opacity-100
-        " 
+        "
       />
-      <Image className="md:hidden" src={"/icon/circle-arrow-right.svg"} alt="" width={34} height={34}/>
+      <Image
+        className="md:hidden"
+        src={"/icon/circle-arrow-right.svg"}
+        alt=""
+        width={34}
+        height={34}
+      />
     </article>
-  );
+  )
 }
 
 export default IndustriesCard

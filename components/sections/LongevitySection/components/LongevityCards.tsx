@@ -3,25 +3,20 @@
 import LongevityCard from "./Card"
 
 import longevityCardData, { ImageData } from "../data/longevityCardData"
-interface CardProps{
-
-  indexId:number
+interface CardProps {
+  indexId: number
 }
 
-export default function LongevityCards({indexId}:CardProps) {
-
-
+export default function LongevityCards({ indexId }: CardProps) {
   return (
-    <div className="flex gap-3">
-      
-        {longevityCardData[indexId].imageSrc.map((card:ImageData) => (
-          <LongevityCard
-            key={card.image}
-            imageSrc={card.image}
-            title={card.footNote}
-          />
-        ))}
-      
+    <div className="flex justify-start gap-5">
+      {longevityCardData[indexId].imageSrc.map((card: ImageData) => (
+        <LongevityCard
+          key={card.image}
+          imageSrc={card.image}
+          title={card.footNote}
+        />
+      ))}
     </div>
   )
 }
