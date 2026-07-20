@@ -5,21 +5,21 @@ import RevealItem from "@/components/animations/RevealItem"
 const FormSection = () => {
   return (
     <Section className="bg-secondary">
-      <div className="gap-20 ">
+      <div className="mb-[30px] sm:mb-60 md:mb-100">
         {/* Left */}
-        <div>
-          <RevealItem className="section-heading">
+      
+          <RevealItem className="section-heading mb-[5px] sm:mb-20">
             Where Intelligence Meets Longevity
           </RevealItem>
 
-          <RevealItem className="mt-4 text-[clamp(60px,7.8vw,150px)] uppercase font-semibold leading-none text-extra-dark">
+          <RevealItem className=" text-150 uppercase  leading-none text-extra-dark">
             Begin Here.
           </RevealItem>
-        </div>
+      </div>
+       
 
         {/* Right */}
         <ContactForm />
-      </div>
     </Section>
   )
 }

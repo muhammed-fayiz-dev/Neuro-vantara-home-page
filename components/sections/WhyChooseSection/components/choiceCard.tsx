@@ -1,8 +1,9 @@
 "use client"
 
 import Image from "next/image"
+import clsx from "clsx"
 
-import { Variants, motion } from "framer-motion"
+import { AnimatePresence, motion, Variants } from "framer-motion"
 
 export const containerVariants: Variants = {
   hidden: {},
@@ -36,6 +37,15 @@ interface ChoiceCardProps {
   onHoverEnd?: () => void
 }
 
+interface ChoiceCardProps {
+  icon: string
+  title: string
+  description?: string
+  active?: boolean
+  onHoverStart?: () => void
+  onHoverEnd?: () => void
+}
+
 export function ChoiceCard({
   icon,
   title,
@@ -46,80 +56,87 @@ export function ChoiceCard({
 }: ChoiceCardProps) {
   return (
     <motion.article
+      variants={itemVariants}
       onHoverStart={onHoverStart}
       onHoverEnd={onHoverEnd}
-      className={`
-    group
-    relative
-    flex
-    min-h-105
-    flex-col
-    border-r border-white/50
-    px-10
-    py-10
-    transition-all
-    duration-300
-    
-    ${active ? "bg-[#c4aa8d]" : "bg-secondary"}
-    
-  `}
-    >
-      {/* Icon */}
-      <div
-        className="h-16 md:h-24 flex items-start
+      className="
+       relative h-full select-none pt-20 sm:pt-60 3xl:pt-80 px-20 sm:px-50 3xl:px-70 pb-20 sm:pb-70 3xl:pb-[74px] bg-[#FBF7F433] border-x border-x-[#FBF7F4]/10 sm:bg-transparent mx-[16px] sm:mx-0
       "
-      >
-        <Image
-          src={icon}
-          alt={title}
-          width={70}
-          height={70}
-          className={`
-          w-10 h-10 md:w-12.5 md:h-12.5 lg:w-17.5 lg:h-17.5
-          transition-all
-          duration-300
-          ${active ? "brightness-0 invert" : ""}
-      `}
+    >
+      {/* Mobile Top Border */}
+      <span
+        className="absolute inset-x-0 top-0 h-px pointer-events-none sm:hidden"
+        style={{
+          background:
+            "linear-gradient(270deg, rgba(251,247,244,.1) 0%, rgb(251,247,244) 48.08%, rgba(251,247,244,.1) 100%)",
+        }}
+      />
+
+      {/* Mobile Bottom Border */}
+      <span
+        className="absolute inset-x-0 bottom-0 h-px pointer-events-none sm:hidden"
+        style={{
+          background:
+            "linear-gradient(270deg, rgba(251,247,244,.1) 0%, rgb(251,247,244) 48.08%, rgba(251,247,244,.1) 100%)",
+        }}
+      />
+
+      {/* Desktop Divider */}
+      <div className="hidden sm:block">
+        <div
+          className="absolute right-0 bottom-0 h-full w-[1px] pointer-events-none z-10"
+          style={{
+            background:
+              "linear-gradient(rgba(251, 247, 244, 0.1) 0%, rgb(251, 247, 244) 100%)",
+          }}
         />
       </div>
 
-      {/* Content */}
-      <div
-        className={`
-      mt-6
-  md:mt-auto
-  transition-transform
-  duration-500
-  ease-out
-      
-      ${active ? "md:-translate-y-10 text-white/70" : "text-extra-dark"}
-    `}
-      >
-        <h3 className="text-30">{title}</h3>
+      <div className="flex flex-col  h-full">
+        {/* ICON — size-only, no color/invert change on active */}
+        <div className="mb-[30px] sm:mb-0">
+          <Image
+            src={icon}
+            alt={title}
+            width={100}
+            height={100}
+            className={`h-[40px] w-[40px] sm:h-[50px] md:h-[70px] sm:w-auto`}
+          />
+        </div>
 
-        {description && (
-          <p
-            className={`
-              text-19
-          // mt-2
-    max-h-full
-opacity-100
-translate-y-0
-    overflow-hidden
-
-   md:max-h-0
-md:opacity-0
-md:translate-y-8
-    transition
-    duration-500
-    ease-out
-    ${active ? "md:max-h-40 md:opacity-100 md:translate-y-0 md:transition-1 text-white/90" : ""}
-
-        `}
+        {/* CONTENT */}
+        <div className="mt-auto">
+          <h3
+            className={clsx(
+              "transition-transform duration-500 ease-[cubic-bezier(.76,0,.24,1)] text-30 tracking-[-0.03em] text-extra-dark",
+              active
+                ? "-translate-y-6 mb-[10px] sm:mb-30"
+                : "translate-y-0 mb-0"
+            )}
           >
-            {description}
-          </p>
-        )}
+            {title}
+          </h3>
+
+          <div
+            className={clsx(
+              "grid overflow-hidden transition-all duration-500",
+              active ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+            )}
+          >
+            <div className="overflow-hidden">
+              <p
+                className={clsx(
+                  " text-extra-dark leading-[1.421] text-19 transition-all duration-500",
+                  active
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-3"
+                )}
+              >
+                {description}
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </motion.article>
   )

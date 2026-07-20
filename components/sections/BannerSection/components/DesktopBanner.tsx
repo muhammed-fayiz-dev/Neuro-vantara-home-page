@@ -14,7 +14,7 @@ export const DesktopBanner: React.FC<DesktopBannerProps> = ({
   features,
   activeIndex,
   setActiveIndex,
-  descriptionMax_w,
+  // descriptionMax_w,
 }) => {
   return (
     <div className=" h-full flex flex-col justify-between py-section ">

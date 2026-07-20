@@ -41,7 +41,7 @@ export default function AdvancedSection() {
         <Button theme="dark">About Neuro Vanta</Button>
 
         {/* <div className="w-full lg:flex-1 lg:max-w-[1136px]"> */}
-          <AdvancedLongevityCard />
+        <AdvancedLongevityCard />
         {/* </div> */}
       </div>
     </Section>

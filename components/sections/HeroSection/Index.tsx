@@ -39,7 +39,7 @@ export default function Hero() {
         </RevealItem>
         <RevealItem
           trigger="load"
-          // className="mt-[clamp(2rem,4vw,4rem)]"
+          className="mb-1"
         >
           <Button className="uppercase">Longevity Systems</Button>
         </RevealItem>

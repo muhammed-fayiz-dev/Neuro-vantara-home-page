@@ -7,68 +7,60 @@ interface Props {
 
 const IndustriesCard: React.FC<Props> = ({ title, icon }) => {
   return (
-    <article
-      className="
-        group
-        flex
-        items-center
-        justify-between
-        border-t
-        border-border-default
-        py-6
-        px-5
-        transition-colors
-        duration-300
-      "
-    >
-      <div className="md:hidden">
-        <Image
+   
+      <div className="opacity: 1; transform: none">
+        <li className="border-b border-border-color">
+          <a>
+            <div className="flex items-center justify-between py-[31px] h-[96px] sm:h-auto">
+              <div className="flex items-center gap-[30px] sm:gap-80">
+<Image
           src={icon}
           alt={icon}
           width={32}
           height={32}
-          className=" -translate-x-2
-          transition-all
-          duration-300
-          group-hover:translate-x-0
-          group-hover:opacity-100"
+          className="w-[32px] h-[32px] sm:w-[45px] sm:h-[45px] md:w-[55px] md:h-[55px] object-contain shrink-0"
         />
-      </div>
-      <h3
+            <span
         className="
           text-30
           text-extra-dark
-          transition-colors
-          duration-300
+          tracking-[-0.03em] max-w-[222px] md:max-w-full
           group-hover:text-dark
         "
       >
         {title}
-      </h3>
-      <Image
-        src="/icon/arrow-to-top-right.svg"
+      </span>
+              </div>
+              <div className="w-[34px] h-[34px] sm:w-[45px] sm:h-[45px] md:w-[50px] md:h-[50px]  rounded-full bg-primary flex items-center justify-center shrink-0">
+<Image
+        src="/icon/circle-arrow-right.svg"
         alt=""
-        width={28}
-        height={28}
+        width={14}
+        height={14}
         className="
           hidden
           lg:block
-          opacity-0
-          -translate-x-2
-          transition-all
-          duration-300
-          group-hover:translate-x-0
-          group-hover:opacity-100
+          w-[14px] sm:w-[16px] md:w-[18px] h-auto -rotate-90
         "
       />
-      <Image
-        className="md:hidden"
+              </div>
+
+            </div>
+          </a>
+
+        </li>
+        
+  
+      
+      {/* <Image
+        className="lg:hidden"
         src={"/icon/circle-arrow-right.svg"}
         alt=""
         width={34}
         height={34}
-      />
-    </article>
+        /> */}
+        </div>
+    
   )
 }
 
