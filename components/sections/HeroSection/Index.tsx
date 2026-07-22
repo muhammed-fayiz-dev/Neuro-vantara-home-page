@@ -1,5 +1,4 @@
 import RevealItem from "@/components/animations/RevealItem"
-import Navbar from "@/components/layout/Navbar"
 import Button from "@/components/ui/Button/Button"
 
 export default function Hero() {

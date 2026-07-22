@@ -7,6 +7,7 @@ import { Swiper, SwiperSlide } from "swiper/react"
 import { Autoplay } from "swiper/modules"
 
 import "swiper/css"
+import RevealItem from "@/components/animations/RevealItem"
 
 export const DesktopBanner: React.FC<DesktopBannerProps> = ({
   title,
@@ -14,12 +15,12 @@ export const DesktopBanner: React.FC<DesktopBannerProps> = ({
   features,
   activeIndex,
   setActiveIndex,
-  
-  descriptionMax_w=65,
+
+  descriptionMax_w = 65,
 }) => {
   return (
     <div className=" h-full flex flex-col justify-between py-section ">
-      <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between">
+      <div className="flex flex-col  sm:gap-20 lg:flex-row lg:items-start lg:justify-between">
         <div className="flex flex-col gap-[15px] sm:gap-20 ">
           <RevealItemProps
             trigger="viewport"
@@ -28,21 +29,21 @@ export const DesktopBanner: React.FC<DesktopBannerProps> = ({
             {title}
           </RevealItemProps>
 
-          <RevealItemProps
-            trigger="viewport"
-            className={` mb-[30px`}
-          >
-            <p  className={`description-text text-white/80  leading-[1.52] max-w-[60ch] ${descriptionMax_w}`}>
-            {description}
+          <RevealItemProps trigger="viewport" className={` mb-[30px`}>
+            <p
+              className={`description-text text-white/80  leading-[1.52] max-w-[60ch] ${descriptionMax_w}`}
+            >
+              {description}
             </p>
           </RevealItemProps>
         </div>
+        <RevealItem trigger="viewport" direction="left" >
+          <div className="flex  lg:flex lg:flex-col pt-20 lg:justify-center lg:items-end gap-5">
+            <Button>EXPLORE</Button>
 
-        <div className="flex  lg:flex lg:flex-col pt-2 lg:justify-center lg:items-end gap-5 ">
-          <Button>EXPLORE</Button>
-
-          <Button>VIEW PRODUCTS</Button>
-        </div>
+            <Button>VIEW PRODUCTS</Button>
+          </div>
+        </RevealItem>
       </div>
 
       <div className="relative">

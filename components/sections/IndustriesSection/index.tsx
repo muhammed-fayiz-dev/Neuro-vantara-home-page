@@ -1,5 +1,5 @@
 "use client"
-import { industriesData, IndustriesDataProps } from "./data/industriesData"
+import { industriesData } from "./data/industriesData"
 import IndustriesCard from "./components/IndustriesCard"
 import RevealItem from "@/components/animations/RevealItem"
 import SystemsCards from "./components/SystemsCards"

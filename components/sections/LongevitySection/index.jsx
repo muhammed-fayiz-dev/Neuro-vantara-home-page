@@ -6,12 +6,12 @@ import longevityCardData from "./data/longevityCardData"
 import LongevityCard from "./components/Card"
 import { Swiper, SwiperSlide } from "swiper/react"
 import { Navigation } from "swiper/modules"
-import { Swiper as SwiperType } from "swiper"
 
 import "swiper/css"
 import { LongevityList } from "./components/LongevityList"
 import MobileLongevityList from "./components/LongevitySectionHeader"
 import SlideButton from "@/components/ui/Slid Button"
+import RevealItem from "@/components/animations/RevealItem"
 
 export default function LongevityIndex() {
   const [selectedIndex, setSelectedIndex] = useState(0)
@@ -35,11 +35,13 @@ export default function LongevityIndex() {
   }, [selectedIndex])
 
   return (
-    <section className="bg-white py-[65px] lg:py-120 3xl:py-150 md:overflow-hidden">
+    <section className="bg-white py-[65px] lg:py-120 3xl:py-150 overflow-hidden">
       <div className="container">
         <div className="flex flex-col xl:flex-row gap-y-8 xl:gap-x-16 gap-y-[15px] sm:gap-y-20 gap-x-8 mb-[30px] sm:mb-60">
           <div className="xl:w-[38%] shrink-0">
-            <h1 className="section-heading">LONGEVITY SYSTEMS</h1>
+            <RevealItem trigger="viewport" direction="right">
+              <h1 className="section-heading">LONGEVITY SYSTEMS</h1>
+            </RevealItem>
           </div>
 
           <MobileLongevityList

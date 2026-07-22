@@ -8,7 +8,7 @@ import AdvancedLongevityCard from "./components/AdvancedLongevityCard"
 
 export default function AdvancedSection() {
   return (
-    <Section className="bg-primary">
+    <Section className="bg-primary overflew-hidden">
       {/* Top */}
       <div className="mb-section">
         <RevealItem
@@ -38,7 +38,9 @@ export default function AdvancedSection() {
     lg:justify-between
     lg:gap-x-170"
       >
-        <Button theme="dark">About Neuro Vanta</Button>
+        <RevealItem trigger="viewport" direction="right">
+          <Button theme="dark">About Neuro Vanta</Button>
+        </RevealItem>
 
         {/* <div className="w-full lg:flex-1 lg:max-w-[1136px]"> */}
         <AdvancedLongevityCard />

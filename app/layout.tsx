@@ -4,6 +4,7 @@ import "./globals.css"
 import Loader from "@/components/loader"
 import Navbar from "@/components/layout/Navbar"
 
+
 const dmSans = DM_Sans({
   variable: "--font-dmSans",
   subsets: ["latin"],
@@ -19,9 +20,10 @@ export default function RootLayout({
   return (
     <html lang="en" className={dmSans.variable}>
       <body className="min-h-full flex flex-col">
+         
         <ScrollProvider>
-          {/* <Loader /> */}
-          <Navbar />
+            <Navbar />
+          <Loader />
 
           {children}
         </ScrollProvider>

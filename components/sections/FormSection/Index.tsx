@@ -4,7 +4,7 @@ import RevealItem from "@/components/animations/RevealItem"
 
 const FormSection = () => {
   return (
-    <Section className="bg-secondary">
+    <Section className="bg-secondary overflew-hidden">
       <div className="mb-[30px] sm:mb-60 md:mb-100">
         {/* Left */}
       

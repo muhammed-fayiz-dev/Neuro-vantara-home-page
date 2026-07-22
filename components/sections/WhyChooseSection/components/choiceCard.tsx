@@ -3,7 +3,7 @@
 import Image from "next/image"
 import clsx from "clsx"
 
-import { AnimatePresence, motion, Variants } from "framer-motion"
+import {  motion, Variants } from "framer-motion"
 
 export const containerVariants: Variants = {
   hidden: {},

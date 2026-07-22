@@ -7,6 +7,8 @@ import { useGSAP } from "@gsap/react"
 
 gsap.registerPlugin(ScrollTrigger)
 
+type Direction = "up" | "down" | "left" | "right"
+
 interface RevealItemProps {
   children: React.ReactNode
   className?: string
@@ -14,6 +16,38 @@ interface RevealItemProps {
   delay?: number
   trigger?: "load" | "viewport" | "scroll"
   start?: string
+  direction?: Direction
+}
+
+// Maps a direction to the gsap "from" vars.
+// "up"    -> text moves from bottom to up   (yPercent 100 -> 0)
+// "down"  -> text moves from top to bottom  (yPercent -100 -> 0)
+// "left"  -> text moves from right to left  (xPercent 100 -> 0)
+// "right" -> text moves from left to right  (xPercent -100 -> 0)
+function getFromVars(direction: Direction) {
+  switch (direction) {
+    case "down":
+      return { yPercent: -100 }
+    case "left":
+      return { xPercent: 100 }
+    case "right":
+      return { xPercent: -100 }
+    case "up":
+    default:
+      return { yPercent: 100 }
+  }
+}
+
+function getToVars(direction: Direction) {
+  switch (direction) {
+    case "left":
+    case "right":
+      return { xPercent: 0 }
+    case "up":
+    case "down":
+    default:
+      return { yPercent: 0 }
+  }
 }
 
 export default function RevealItem({
@@ -23,6 +57,7 @@ export default function RevealItem({
   delay = 0,
   trigger = "viewport",
   start = "top 85%",
+  direction = "up",
 }: RevealItemProps) {
   const wrapperRef = useRef<HTMLDivElement>(null)
   const textRef = useRef<HTMLSpanElement>(null)
@@ -31,18 +66,23 @@ export default function RevealItem({
     () => {
       if (!textRef.current) return
 
+      const fromVars = getFromVars(direction)
+      const toVars = getToVars(direction)
+
       switch (trigger) {
         case "load":
           gsap.fromTo(
             textRef.current,
             {
-              yPercent: 100,
+              yPercent: getFromVars(direction).yPercent,
+              xPercent: getFromVars(direction).xPercent,
             },
             {
-              yPercent: 0,
+              ...getToVars(direction),
               duration,
               delay,
               ease: "power4.out",
+              clearProps: "transform",
             }
           )
           break
@@ -51,13 +91,15 @@ export default function RevealItem({
           gsap.fromTo(
             textRef.current,
             {
-              yPercent: 100,
+              yPercent: getFromVars(direction).yPercent,
+              xPercent: getFromVars(direction).xPercent,
             },
             {
-              yPercent: 0,
+              ...getToVars(direction),
               duration,
               delay,
               ease: "power4.out",
+              clearProps: "transform",
               scrollTrigger: {
                 trigger: wrapperRef.current,
                 start,
@@ -68,26 +110,23 @@ export default function RevealItem({
           break
 
         case "scroll":
-          gsap.fromTo(
-            textRef.current,
-            {
-              yPercent: 100,
+          gsap.fromTo(textRef.current, fromVars, {
+            ...toVars,
+            ease: "none",
+            scrollTrigger: {
+              trigger: wrapperRef.current,
+              start: "top bottom",
+              end: "top center",
+              scrub: true,
             },
-            {
-              yPercent: 0,
-              ease: "none",
-              scrollTrigger: {
-                trigger: wrapperRef.current,
-                start: "top bottom",
-                end: "top center",
-                scrub: true,
-              },
-            }
-          )
+          })
           break
       }
     },
-    { scope: wrapperRef }
+    {
+      scope: wrapperRef,
+      dependencies: [direction, trigger, start, duration, delay],
+    }
   )
 
   return (

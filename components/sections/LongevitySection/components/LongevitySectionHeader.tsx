@@ -1,7 +1,7 @@
 "use client"
-import { ArrowUpRight, ChevronDown } from "lucide-react"
+import { ChevronDown } from "lucide-react"
 import longevityCardData, {
-  LongevityCardDataType,
+
 } from "../data/longevityCardData"
 import { useEffect, useRef, useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"

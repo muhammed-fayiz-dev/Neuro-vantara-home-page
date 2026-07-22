@@ -52,8 +52,6 @@
      Typography
   ========================================================================== */
 
-
-
   --text-hero: clamp(30px, 1.4rem + 2.6vw, 70px);
   /* --text-section: clamp(26px, 2.8vw + 6.2px, 60px); */
   --text-section: clamp(26px, 2.6vw + 16px, 60px);
@@ -74,7 +72,6 @@
   --text-19: clamp(13px, 0.42vw + 11.4px, 19px);
   --text-15: clamp(12px, 0.28vw + 9.9px, 15px);
 
-
   --text-button: clamp(12px, 0.28vw + 9.9px, 15px);
 
   --leading-20: clamp(19px, calc(18.5px + 0.1vw), 20px);
@@ -83,18 +80,8 @@
      Spacing
   ========================================================================== */
 
-  --space-80: clamp(40px, 2.81vw + 29px, 80px);
-  --space-100: clamp(40px, 3.5vw, 100px);
-  --space-150: clamp(60px, 5.84vw + 38px, 150px);
-  --space-170: clamp(36px, 2.39vw + 26.7px, 70px);
-  --space-120: clamp(50px, 4.93vw + 30.7px, 120px);
-  --space-60: clamp(15px, 3.5rem, 60px);
-  --space-50: clamp(28px, 1.55vw + 21.9px, 50px);
-  --space-40: clamp(26px, 1.22vw + 19.6px, 40px);
-  --section-space: clamp(60px, 8vw, 120px);
-
   /* spacing */
-  --space-20: 20px;
+  --space-20: clamp(20px, 0.56vw + 9.8px, 20px);
   --space-25: clamp(22px, 0.77vw + 10px, 25px);
   --space-30: clamp(24px, 0.84vw + 14.7px, 30px);
   --space-40: clamp(26px, 1.22vw + 19.6px, 40px);
@@ -109,6 +96,8 @@
   --space-150: clamp(60px, 6.34vw + 35.3px, 150px);
   --space-160: clamp(65px, 6.69vw + 38.9px, 160px);
   --space-170: clamp(69px, 7.11vw + 41.3px, 170px);
+  --space-200: clamp(80px, 8.45vw + 47px, 200px);
+  --space-225: clamp(90px, 9.51vw + 52.9px, 225px);
 
   --section-space: clamp(60px, 8vw, 120px);
 
@@ -184,6 +173,8 @@
   --spacing-150: var(--space-150);
   --spacing-160: var(--space-160);
   --spacing-170: var(--space-170);
+  --spacing-200: var(--space-200);
+  --spacing-225: var(--space-225);
 
   --width-card-image: var(--card-image-width);
 
@@ -322,7 +313,7 @@ body {
 }
 
 @utility description-text {
-  @apply text-19 leading-20 text-extra-dark;
+  @apply text-19 leading-[1.5263] lg:leading-[1.5384] text-extra-dark;
 }
 
 @utility section-heading {

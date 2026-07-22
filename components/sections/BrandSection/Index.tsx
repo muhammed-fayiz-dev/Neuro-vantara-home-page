@@ -49,25 +49,25 @@ const BrandSection = () => {
           className="hidden xl:flex xl:flex-col gap-[20px]"
         >
           {/* Row 1 */}
-          {/* <RevealItem trigger="viewport"> */}
+          <RevealItem trigger="viewport" direction="right">
             <div className="flex justify-end gap-[20px]">
               {brandIcons.slice(0, 3).map((icon, index) => (
                 <BrandCard key={index} icon={icon} />
               ))}
             </div>
-          {/* </RevealItem> */}
+          </RevealItem>
 
           {/* Row 2 */}
-          {/* <RevealItem trigger="viewport"> */}
+          <RevealItem trigger="viewport" direction="left">
             <div className="flex gap-[20px]">
               {brandIcons.slice(3, 6).map((icon, index) => (
                 <BrandCard key={index} icon={icon} />
               ))}
             </div>
-          {/* </RevealItem> */}
+          </RevealItem>
 
           {/* Row 3 */}
-          {/* <RevealItem trigger="viewport"> */}
+          <RevealItem trigger="viewport" direction="right">
             <div className="flex justify-between">
               <BrandCard icon={brandIcons[6]} />
 
@@ -76,7 +76,7 @@ const BrandSection = () => {
                 <BrandCard icon={brandIcons[8]} />
               </div>
             </div>
-          {/* </RevealItem> */}
+         </RevealItem>
         </motion.div>
       </div>
     </section>
